@@ -4,6 +4,7 @@
 # taxonomy
 class Database:
     def __init__(self, *,
+                 short,
                  title,
                  description,
                  sources,
@@ -14,6 +15,7 @@ class Database:
                  index_type,
                  download_url,
                  sha256):
+        self.short = str(short)
         self.title = str(title)
         self.description = str(description)
         self.sources = list(sources)
@@ -48,6 +50,9 @@ class Database:
 
     def __str__(self):
         return f"{self.title}"
+
+    def json(self):
+        return self.__dict__
 
 
 def search_databases(dbs, *,
