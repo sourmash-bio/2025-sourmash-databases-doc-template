@@ -1,13 +1,14 @@
 # add:
 # release date
 # version
+# taxonomy
 class Database:
     def __init__(self, *,
                  title,
                  description,
                  sources,
                  ksizes,
-                 moltype,
+                 moltypes,
                  scaled,
                  fmt,
                  index_type,
@@ -18,7 +19,7 @@ class Database:
         self.sources = list(sources)
 
         self.ksizes = list(map(int, ksizes))
-        self.moltype = str(moltype)
+        self.moltypes = list(moltypes)
         self.scaled = int(scaled)
         self.fmt = fmt
         self.index_type = index_type
@@ -35,11 +36,37 @@ class Database:
         assert min(self.ksizes) >= 4, self.ksizes
         assert max(self.ksizes) <= 101, self.ksizes
 
-        assert self.moltype in {'DNA', 'protein', 'skipm1n3', 'skipm2n3',
-                                'dayhoff', 'hp'}, self.moltype
+        for moltype in self.moltypes:
+            assert moltype in {'DNA', 'protein', 'skipm1n3', 'skipm2n3',
+                               'dayhoff', 'hp'}, (moltype, self.moltypes)
         
-        assert self.scaled >= 1, self.sscaled
+        assert self.scaled >= 1, self.scaled
         assert self.scaled <= 1e9, self.scaled
 
         assert self.fmt in {'zip', 'tar.gz'}
         assert self.index_type in {'zipfile', 'lca.json', 'rocksdb'}
+
+    def __str__(self):
+        return f"{self.title}"
+
+
+def search_databases(dbs, *,
+                     ksize=None,
+                     scaled=None, # min scaled
+                     keyword=None,
+                     moltype=None,
+                     ):
+    for db in dbs.values():
+        match = False
+        if ksize and ksize in db.ksizes:
+            match = True
+        if scaled and db.scaled >= scaled:
+            match = True
+        if moltype and moltype in db.moltypes:
+            match = True
+        if keyword:
+            if keyword in db.title or keyword in db.description:
+                match = True
+
+        if match:
+            yield db
