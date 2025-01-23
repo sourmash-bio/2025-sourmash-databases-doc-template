@@ -6,8 +6,23 @@ from glom import glom
 from dd_utils import Database, search_databases
 import json
 
-gtdb_entire_k31 = Database(
-    short='gtdb_entire_k31',
+BASE_URL='https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db'
+
+gtdb220_entire_k21 = Database(
+    short='gtdb220_entire_k21',
+    title='GTDB: entire database, RS220',
+    description='All Bacteria and Archaea from GTDB rs220',
+    sources=['gtdb', 'ncbi'],
+    moltypes=['DNA'],
+    ksizes=[21],
+    scaled=1000,
+    fmt='zip',
+    index_type='zipfile',
+    download_url=f'{BASE_URL}/gtdb-rs214/gtdb-rs214-k21.zip',
+    sha256='')
+
+gtdb220_entire_k31 = Database(
+    short='gtdb220_entire_k31',
     title='GTDB: entire database, RS220',
     description='All Bacteria and Archaea from GTDB rs220',
     sources=['gtdb', 'ncbi'],
@@ -16,10 +31,26 @@ gtdb_entire_k31 = Database(
     scaled=1000,
     fmt='zip',
     index_type='zipfile',
-    download_url='',
+    download_url=f'{BASE_URL}/gtdb-rs214/gtdb-rs214-k31.zip',
     sha256='')
 
-databases = dict(gtdb_entire_k31=gtdb_entire_k31)
+gtdb220_entire_k51 = Database(
+    short='gtdb220_entire_k51',
+    title='GTDB: entire database, RS220',
+    description='All Bacteria and Archaea from GTDB rs220',
+    sources=['gtdb', 'ncbi'],
+    moltypes=['DNA'],
+    ksizes=[51],
+    scaled=1000,
+    fmt='zip',
+    index_type='zipfile',
+    download_url=f'{BASE_URL}/gtdb-rs214/gtdb-rs214-k51.zip',
+    sha256='')
+
+databases = dict(gtdb220_entire_k21=gtdb220_entire_k21,
+                 gtdb220_entire_k31=gtdb220_entire_k31,
+                 gtdb220_entire_k51=gtdb220_entire_k51)
+
 
 
 def main():

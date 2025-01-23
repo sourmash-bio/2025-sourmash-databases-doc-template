@@ -2,6 +2,7 @@
 # release date
 # version
 # taxonomy
+# add num species, num genomes?
 class Database:
     def __init__(self, *,
                  short,
