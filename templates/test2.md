@@ -1,10 +1,10 @@
-Download URL {{ gtdb220_dna.k51.download_url }}
+Download URL {{ gtdb220_entire_dna.k51.download_url }}
 
-Filename: {{ gtdb220_dna.k51.filename }}
+Filename: {{ gtdb220_entire_dna.k51.filename }}
 
-Title: {{ gtdb220_dna.collection.title }}
+Title: {{ gtdb220_entire_dna.collection.title }}
 
-{% for tax in gtdb220_dna.collection.taxonomies %}
+{% for tax in gtdb220_entire_dna.collection.taxonomies %}
 {{ tax.title }}
 * {{ tax.description }}
 * {{ tax.lineage_file }}

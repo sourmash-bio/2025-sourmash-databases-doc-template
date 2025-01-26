@@ -32,7 +32,7 @@ gtdb220 = GenomeCollection(
 )
 
 gtdb220_entire_dna = SketchDatabases(
-    short='gtdb220_dna',
+    short='gtdb220_entire_dna',
     collection=gtdb220,
     moltypes=["DNA"],
     ksizes=[21, 31, 51],
