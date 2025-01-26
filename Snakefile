@@ -12,7 +12,7 @@ rule make_db_json:
     output:
         json='outputs/databases.json',
     shell: """
-        {input.script} --output-json {output.json}
+        {input.script} --save-pickle {output.json}
     """
 
 

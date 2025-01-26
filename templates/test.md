@@ -21,8 +21,8 @@ These are databases for the full GTDB release, each containing 402,709  genomes.
 
 | K-mer size | Zipfile collection |
 | -------- | -------- | -------- | ---- |
-| 21 | [download (12 GB)]({{ gtdb220_entire_k21.download_url }}) 
-| 31 | [download (12 GB)]({{ gtdb220_entire_k31.download_url }}) 
-| 51 | [download (12 GB)]({{ gtdb220_entire_k51.download_url }}) 
+| 21 | [download (12 GB)]({{ gtdb220_dna.download_url }}) 
+| 31 | [download (12 GB)]({{ gtdb220_dna.download_url }}) 
+| 51 | [download (12 GB)]({{ gtdb220_dna.download_url }}) 
 | 51 | [download (12 GB)]() | [download (23 GB)](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs214/gtdb-rs214-k51.sbt.zip) | [download (460 MB)](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs214/gtdb-rs214-k51.lca.json.gz) |
 
