@@ -8,6 +8,7 @@ from dd_utils import Taxonomy, GenomeCollection, SketchDatabases, search_databas
 import json
 
 BASE_URL = "https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db"
+
 FILE_PATH = "@CTB"
 
 
@@ -16,7 +17,8 @@ gtdb220_tax = Taxonomy(
     title="GTDB RS220 taxonomy",
     description="All Bacteria and Archaea from GTDB RS220",
     source='gtdb',
-    lineage_file='xxx@CTB'
+    lineage_file='gtdbrs220_taxonomy_file',
+    # @CTB download_url
 )
 
 gtdb220 = GenomeCollection(
@@ -25,7 +27,7 @@ gtdb220 = GenomeCollection(
     description="All Bacteria and Archaea from GTDB RS220",
     category="bac+arc",
     sources=["gtdb", "ncbi"],
-    links=["http://foo@CTB"],
+    links=["http://link_to_gtdb"],
     taxonomies = [gtdb220_tax],
 )
 
@@ -37,7 +39,7 @@ gtdb220_entire_dna = SketchDatabases(
     scaled=1000,
     fmt="zip",
     index_type="zipfile",
-    filename="gtdb-rs214/gtdb-rs2124-k{ksize}.zip",
+    filename="gtdb-rs220/gtdb-rs220-k{ksize}.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -59,6 +61,8 @@ def main():
     scaled = args.scaled
     if scaled is not None:
         scaled = int(scaled)
+
+    print(databases[0])
 
     if args.output_json:
         assert 0

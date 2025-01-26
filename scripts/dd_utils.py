@@ -56,6 +56,23 @@ class GenomeCollection:
     def from_json(self, s):
         self.__dict__.update(json.loads(s))
 
+
+class ConcreteSketchDatabase:
+    def __init__(self,
+                 *,
+                 ksize,
+                 moltype,
+                 parent):
+        self.ksize = ksize
+        self.moltype = moltype
+        self.scaled = parent.scaled
+        self.fmt = parent.fmt
+        self.filename = parent.filename.format(ksize=ksize,
+                                               moltype=moltype)
+        self.download_url = parent.download_url.format(ksize=ksize,
+                                                       moltype=moltype,
+                                                       filename=self.filename)
+
 class SketchDatabases:
     def __init__(
         self,
@@ -83,6 +100,7 @@ class SketchDatabases:
         self.download_url = str(download_url)
 
         self._validate()
+        print('XXX', self.ksizes)
 
     def _validate(self):
         assert min(self.ksizes) >= 4, self.ksizes
@@ -104,8 +122,18 @@ class SketchDatabases:
         assert self.fmt in {"zip", "tar.gz"}
         assert self.index_type in {"zipfile", "lca.json", "rocksdb"}
 
-    def __str__(self):
-        return f"{self.title}"
+    def __getattr__(self, name):
+        print(name)
+        if name in self.__dict__:
+            return self.__dict__[name]
+        elif not name.startswith('_'):
+            if name.startswith('k'):
+                ksize = int(name[1:])
+                if ksize in self.ksizes:
+                    return ConcreteSketchDatabase(ksize=ksize,
+                                                  moltype='DNA', # @CTB
+                                                  parent=self)
+        raise AttributeError
 
     def json(self):
         d = dict(self.__dict__)
