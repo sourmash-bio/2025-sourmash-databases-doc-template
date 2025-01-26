@@ -1,0 +1,3 @@
+all: Snakefile
+	snakemake -p
+

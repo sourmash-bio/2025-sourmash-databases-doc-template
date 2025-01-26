@@ -37,6 +37,8 @@ def main(argv=sys.argv[1:]):
 
     p = argparse.ArgumentParser()
     p.add_argument('databases_json')
+    p.add_argument('template_md')
+    p.add_argument('-o', '--output', required=True)
     args = p.parse_args(argv)
 
     with open(args.databases_json, 'rt') as fp:
@@ -48,7 +50,9 @@ def main(argv=sys.argv[1:]):
         loader=FileSystemLoader('templates')
     )
 
-    render_template('test.md', values=databases, outpath='out.md')
+    render_template(args.template_md,
+                    values=databases,
+                    outpath=args.output)
 
 
 if __name__ == '__main__':
