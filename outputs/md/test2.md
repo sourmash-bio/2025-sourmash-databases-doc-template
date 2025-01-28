@@ -6,6 +6,6 @@ Title: GTDB RS220
 
 
 GTDB RS220 taxonomy
-* All Bacteria and Archaea from GTDB RS220
+* GTDB taxonomy for RS220
 * gtdbrs220_taxonomy_file
 

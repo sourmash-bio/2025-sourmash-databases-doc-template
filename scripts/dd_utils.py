@@ -9,15 +9,19 @@
 
 import os
 
+
 class Taxonomy:
-    def __init__(self, *, short, title, description, source, lineage_file,
-                 download_url):
+    def __init__(
+        self, *, short, title, description, source, lineage_file, download_url
+    ):
         self.short = str(short)
         self.title = str(title)
         self.description = str(description)
         self.source = str(source)
         self.lineage_file = lineage_file
-        self.download_url = self.download_url = download_url.format(filename=lineage_file)
+        self.download_url = self.download_url = download_url.format(
+            filename=lineage_file
+        )
 
     def _validate(self):
         assert self.source in ["ncbi", "gtdb", "ictv", "lins"]
@@ -27,6 +31,7 @@ class Taxonomy:
 
     def from_json(self, s):
         self.__dict__.update(json.loads(s))
+
 
 class GenomeCollection:
     def __init__(
@@ -46,7 +51,7 @@ class GenomeCollection:
         assert set(self.sources).issubset({"ncbi", "gtdb", "atb"}), self.sources
         assert self.category in ("bac+arc", "euk", "viruses"), self.category
 
-        for (descr, url) in self.links:
+        for descr, url in self.links:
             assert url.startswith("http://") or url.startswith("https://"), url
 
         for t in self.taxonomies:
@@ -54,7 +59,7 @@ class GenomeCollection:
 
     def json(self):
         d = dict(self.__dict__)
-        d['taxonomies'] = [ t.json() for t in self.taxonomies ]
+        d["taxonomies"] = [t.json() for t in self.taxonomies]
         return d
 
     def from_json(self, s):
@@ -62,24 +67,20 @@ class GenomeCollection:
 
 
 class ConcreteSketchDatabase:
-    def __init__(self,
-                 *,
-                 ksize,
-                 moltype,
-                 parent):
+    def __init__(self, *, ksize, moltype, parent):
         self.ksize = ksize
         self.moltype = moltype
         self.scaled = parent.scaled
         self.fmt = parent.fmt
-        self.filename = parent.filename.format(ksize=ksize,
-                                               moltype=moltype)
-        self.download_url = parent.download_url.format(ksize=ksize,
-                                                       moltype=moltype,
-                                                       filename=self.filename)
+        self.filename = parent.filename.format(ksize=ksize, moltype=moltype)
+        self.download_url = parent.download_url.format(
+            ksize=ksize, moltype=moltype, filename=self.filename
+        )
 
     @property
     def basename(self):
         return os.path.basename(self.filename)
+
 
 class SketchDatabases:
     def __init__(
@@ -108,7 +109,7 @@ class SketchDatabases:
         self.download_url = str(download_url)
 
         self._validate()
-        print('XXX', self.ksizes)
+        print("XXX", self.ksizes)
 
     def _validate(self):
         assert min(self.ksizes) >= 4, self.ksizes
@@ -134,30 +135,29 @@ class SketchDatabases:
         print(name)
         if name in self.__dict__:
             return self.__dict__[name]
-        elif not name.startswith('_'):
-            if name.startswith('k'):
+        elif not name.startswith("_"):
+            if name.startswith("k"):
                 ksize = int(name[1:])
                 if ksize in self.ksizes:
-                    return ConcreteSketchDatabase(ksize=ksize,
-                                                  moltype='DNA',
-                                                  parent=self)
+                    return ConcreteSketchDatabase(
+                        ksize=ksize, moltype="DNA", parent=self
+                    )
         raise AttributeError
 
     @property
     def files(self):
         for k in self.ksizes:
             for moltype in self.moltypes:
-                yield ConcreteSketchDatabase(ksize=k,
-                                             moltype=moltype,
-                                             parent=self)
+                yield ConcreteSketchDatabase(ksize=k, moltype=moltype, parent=self)
 
     def json(self):
         d = dict(self.__dict__)
-        d['collection'] = self.collection.json()
+        d["collection"] = self.collection.json()
         return d
 
     def from_json(self, s):
         self.__dict__.update(json.loads(s))
+
 
 def search_databases(
     dbs,

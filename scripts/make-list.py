@@ -9,7 +9,6 @@ from databases import *
 import json
 
 
-
 databases = [
     gtdb220_entire_dna,
 ]
