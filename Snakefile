@@ -2,7 +2,6 @@ TEMPLATES, = glob_wildcards('templates/{filename}.md')
 
 rule default:
     input:
-        'outputs/databases.json',
         expand('outputs/md/{name}.md', name=TEMPLATES)
 
 
