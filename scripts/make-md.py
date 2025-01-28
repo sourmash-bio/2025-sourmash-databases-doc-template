@@ -48,6 +48,8 @@ def main(argv=sys.argv[1:]):
     # Load jinja templates from disk (templates folder)
     jinja_env = Environment(loader=FileSystemLoader("templates"))
 
+    # CTB: select database here, I think, based on CLI.
+
     values = [ (db.short, db) for db in databases ]
     print(values)
     render_template(args.template_md, values=values, outpath=args.output)

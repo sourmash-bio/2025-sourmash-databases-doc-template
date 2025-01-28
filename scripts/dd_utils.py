@@ -7,6 +7,8 @@
 # taxonomy type (normal, lins, ??)
 # "learn" sha256? or calc once & store? detect changes?
 
+import os
+
 class Taxonomy:
     def __init__(self, *, short, title, description, source, lineage_file):
         self.short = str(short)
@@ -73,6 +75,10 @@ class ConcreteSketchDatabase:
                                                        moltype=moltype,
                                                        filename=self.filename)
 
+    @property
+    def basename(self):
+        return os.path.basename(self.filename)
+
 class SketchDatabases:
     def __init__(
         self,
@@ -134,6 +140,14 @@ class SketchDatabases:
                                                   moltype='DNA', # @CTB
                                                   parent=self)
         raise AttributeError
+
+    @property
+    def files(self):
+        for k in self.ksizes:
+            for moltype in self.moltypes:
+                yield ConcreteSketchDatabase(ksize=k,
+                                              moltype=moltype,
+                                              parent=self)
 
     def json(self):
         d = dict(self.__dict__)

@@ -6,15 +6,9 @@
 * {{ gtdb220_entire_dna.scaled }}
 * {{ gtdb220_entire_dna.fmt }}
 
-Ksizes:
-  {% for ksize in gtdb220_entire_dna.ksizes %}
-     {{ ksize }}
-  {% endfor %}
-
-Moltypes:
-  {% for moltype in gtdb220_entire_dna.moltypes %}
-     {{ moltype }}
-  {% endfor %}
+{% for dbfile in gtdb220_entire_dna.files %}
+   {{ dbfile.fmt }}: [{{ dbfile.basename }}]({{ dbfile.download_url }}) - k={{ dbfile.ksize }}, moltype={{ dbfile.moltype }}, scaled={{ dbfile.scaled }}
+{% endfor %}
 
 ## Collection: {{ gtdb220_entire_dna.collection.short }}
 
