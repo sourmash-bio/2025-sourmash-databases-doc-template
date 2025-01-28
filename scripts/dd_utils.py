@@ -10,12 +10,14 @@
 import os
 
 class Taxonomy:
-    def __init__(self, *, short, title, description, source, lineage_file):
+    def __init__(self, *, short, title, description, source, lineage_file,
+                 download_url):
         self.short = str(short)
         self.title = str(title)
         self.description = str(description)
         self.source = str(source)
         self.lineage_file = lineage_file
+        self.download_url = self.download_url = download_url.format(filename=lineage_file)
 
     def _validate(self):
         assert self.source in ["ncbi", "gtdb", "ictv", "lins"]
@@ -44,8 +46,8 @@ class GenomeCollection:
         assert set(self.sources).issubset({"ncbi", "gtdb", "atb"}), self.sources
         assert self.category in ("bac+arc", "euk", "viruses"), self.category
 
-        for x in self.links:
-            assert x.startswith("http://") or x.startswith("https://"), x
+        for (descr, url) in self.links:
+            assert url.startswith("http://") or url.startswith("https://"), url
 
         for t in self.taxonomies:
             assert isinstance(t, Taxonomy)
@@ -137,7 +139,7 @@ class SketchDatabases:
                 ksize = int(name[1:])
                 if ksize in self.ksizes:
                     return ConcreteSketchDatabase(ksize=ksize,
-                                                  moltype='DNA', # @CTB
+                                                  moltype='DNA',
                                                   parent=self)
         raise AttributeError
 
@@ -146,8 +148,8 @@ class SketchDatabases:
         for k in self.ksizes:
             for moltype in self.moltypes:
                 yield ConcreteSketchDatabase(ksize=k,
-                                              moltype=moltype,
-                                              parent=self)
+                                             moltype=moltype,
+                                             parent=self)
 
     def json(self):
         d = dict(self.__dict__)
