@@ -1,13 +1,8 @@
-# Database: {{ gtdb220_entire_dna.short  }}
+# Database: {{ gtdb220_entire_dna.collection.title  }} - {{ gtdb220_entire_dna.collection.description }}
 
-* {{ gtdb220_entire_dna.short }}
-* {{ gtdb220_entire_dna.moltypes }}
-* {{ gtdb220_entire_dna.ksizes }}
-* {{ gtdb220_entire_dna.scaled }}
-* {{ gtdb220_entire_dna.fmt }}
-
+Files:
 {% for dbfile in gtdb220_entire_dna.files %}
-   {{ dbfile.fmt }}: [{{ dbfile.basename }}]({{ dbfile.download_url }}) - k={{ dbfile.ksize }}, moltype={{ dbfile.moltype }}, scaled={{ dbfile.scaled }}
+   * {{ dbfile.fmt }}: [{{ dbfile.basename }}]({{ dbfile.download_url }}) - {{ dbfile.moltype }}, k={{ dbfile.ksize }}, scaled={{ dbfile.scaled }}
 {% endfor %}
 
 ## Collection: {{ gtdb220_entire_dna.collection.short }}
