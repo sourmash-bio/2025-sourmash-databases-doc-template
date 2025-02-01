@@ -12,6 +12,9 @@ templates = [
     Templates_To_Output('ncbi_viruses_2025_01',
                         'complete',
                         'outputs/md/ncbi_viruses_2025_01.md'),
+    Templates_To_Output('ncbi_euks_2025_01',
+                        'complete',
+                        'outputs/md/ncbi_euks_2025_01.md'),
 ]
 
 def get_template_path(w):

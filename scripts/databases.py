@@ -90,7 +90,7 @@ ncbi_euk_tax = Taxonomy(
 )
 
 ncbi_euks_2025_01 = GenomeCollection(
-    short="ncbi_euks",
+    short="ncbi_euks_2025_01",
     title="NCBI Eukaryotes",
     description="All eukaryotes from NCBI (NCBI:txid2759)",
     category="viruses",
