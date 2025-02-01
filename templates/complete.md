@@ -1,19 +1,21 @@
-# Collection: {{ db.collection.title }} - {{ db.collection.description }}
+# Collection: {{ coll.title }} - {{ coll.description }}
 
 Links:
-{% for (descr, url) in db.collection.links -%}
+{% for (descr, url) in coll.links -%}
 * [{{ descr }}]({{ url }})
 {%- endfor %}
 
 ## Database files:
 
 Files:
+{% for db in coll.sketches %}
 {% for dbfile in db.files -%}
    * {{ dbfile.fmt }}: [{{ dbfile.basename }}]({{ dbfile.download_url }}) - {{ dbfile.moltype }}, k={{ dbfile.ksize }}, scaled={{ dbfile.scaled }}
+{% endfor %}
 {% endfor %}
 
 ## Taxonomy files:
 
-{% for tax in db.collection.taxonomies -%}
+{% for tax in coll.taxonomies -%}
 * [{{ tax.description }}]({{ tax.download_url }})
 {% endfor %}

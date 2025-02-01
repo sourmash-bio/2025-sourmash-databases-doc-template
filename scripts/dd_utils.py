@@ -68,6 +68,7 @@ class GenomeCollection:
         self.category = str(category)
         self.links = list(links)
         self.taxonomies = list(taxonomies)
+        self.sketches = []
 
         self._validate()
 
@@ -134,6 +135,7 @@ class SketchDatabases:
         self.download_url = str(download_url)
 
         self._validate()
+        self.collection.sketches.append(self)
 
     def _validate(self):
         assert self.fmt in {"zip", "tar.gz"}

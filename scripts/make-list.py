@@ -9,9 +9,10 @@ from databases import *
 import json
 
 
-databases = [
-    gtdb220_entire_dna,
+collections = [
+    gtdb220,
     ncbi_viruses_2025_01,
+    ncbi_euks_2025_01,
 ]
 
 
@@ -28,14 +29,14 @@ def main():
     if scaled is not None:
         scaled = int(scaled)
 
-    print(databases[0])
+    print(collections[0])
 
     if args.output_json:
         assert 0
 
     if args.save_pickle:
         with open(args.save_pickle, "wb") as fp:
-            pickle.dump(databases, fp)
+            pickle.dump(collections, fp)
 
 
 if __name__ == "__main__":

@@ -6,9 +6,9 @@ Templates_To_Output = namedtuple("Templates_To_Output",
                                  ['dbname', 'template_name', 'output_md'])
 
 templates = [
-    Templates_To_Output('gtdb220_entire_dna',
+    Templates_To_Output('gtdb220',
                         'complete',
-                        'outputs/md/gtdb220_entire_dna.md'),
+                        'outputs/md/gtdb220.md'),
     Templates_To_Output('ncbi_viruses_2025_01',
                         'complete',
                         'outputs/md/ncbi_viruses_2025_01.md'),
@@ -40,7 +40,7 @@ rule make_db_descr:
     input:
         script='scripts/make-list.py',
     output:
-        pickle='outputs/databases.pickle',
+        pickle='outputs/collections.pickle',
     shell: """
         {input.script} --save-pickle {output.pickle}
     """
@@ -49,7 +49,7 @@ rule make_db_descr:
 rule make_gtdb:
     input:
         script='scripts/make-md.py',
-        pickle='outputs/databases.pickle',
+        pickle='outputs/collections.pickle',
         template_path=get_template_path,
     output:
         "outputs/md/{db}.md",
@@ -57,5 +57,5 @@ rule make_gtdb:
         template=get_template_name,
     shell: """
         {input.script} {input.pickle} {params.template} \
-            --db {wildcards.db} -o {output}
+            --set-collection {wildcards.db} -o {output}
     """

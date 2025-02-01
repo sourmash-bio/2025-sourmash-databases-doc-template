@@ -38,13 +38,12 @@ def main(argv=sys.argv[1:]):
     p = argparse.ArgumentParser()
     p.add_argument("databases_pickle")
     p.add_argument("template_md")
-    p.add_argument("--set-database", "--db", required=True)
+    p.add_argument("--set-collection", required=True)
     p.add_argument("-o", "--output", required=True)
     args = p.parse_args(argv)
 
     with open(args.databases_pickle, "rb") as fp:
-        databases = pickle.load(fp)
-        print(databases)
+        collections = pickle.load(fp)
 
     # Load jinja templates from disk (templates folder)
     jinja_env = Environment(loader=FileSystemLoader("templates"))
@@ -52,16 +51,21 @@ def main(argv=sys.argv[1:]):
     # CTB: select database here, I think, based on CLI.
 
     match = None
-    for db in databases:
-        print(f"checking: {db.short} == {args.set_database}")
-        if db.short == args.set_database:
+    for coll in collections:
+        print(f"checking: {coll.short} == {args.set_collection}")
+        if coll.short == args.set_collection:
             print('found!')
-            match = db
+            match = coll
             break
 
     if match is None:
-        assert 0, "not found"
-    values = dict(db=match)
+        print(f"ERROR: no match to collection '{args.set_collection}'")
+        print("options are:")
+        for coll in collections:
+            print(f"\t{coll.short}")
+        sys.exit(-1)
+
+    values = dict(coll=match)
     
     render_template(args.template_md, values=values, outpath=args.output)
 
