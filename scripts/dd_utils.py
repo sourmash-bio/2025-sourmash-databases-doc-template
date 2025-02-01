@@ -22,13 +22,13 @@ class Params:
         assert self.ksize <= 101, self.ksize
 
         assert self.moltype in {
-                "DNA",
-                "protein",
-                "skip_m1n3",
-                "skip_m2n3",
-                "dayhoff",
-                "hp",
-            }, (moltype, self.moltypes)
+            "DNA",
+            "protein",
+            "skip_m1n3",
+            "skip_m2n3",
+            "dayhoff",
+            "hp",
+        }, (moltype, self.moltypes)
 
         assert self.scaled >= 1, self.scaled
         assert self.scaled <= 1e9, self.scaled
@@ -97,14 +97,14 @@ class ConcreteSketchDatabase:
         self.moltype = moltype
         self.scaled = scaled
         self.fmt = parent.fmt
+        self.description = parent.description
 
-        format_d = dict(ksize=ksize,
-                        moltype=moltype,
-                        moltype_l=moltype.lower(),
-                        scaled=scaled)
+        format_d = dict(
+            ksize=ksize, moltype=moltype, moltype_l=moltype.lower(), scaled=scaled
+        )
         self.filename = parent.filename.format(**format_d)
 
-        format_d['filename'] = self.filename
+        format_d["filename"] = self.filename
         self.download_url = parent.download_url.format(**format_d)
 
     @property
@@ -117,8 +117,9 @@ class SketchDatabases:
         self,
         *,
         short,
+        description,
         collection,
-            params,
+        params,
         fmt,
         index_type,
         download_url,
@@ -128,6 +129,7 @@ class SketchDatabases:
         self.collection = collection
 
         self.short = str(short)
+        self.description = str(description)
         self.params = params
         self.fmt = fmt
         self.index_type = index_type
@@ -160,10 +162,9 @@ class SketchDatabases:
             ksize = param.ksize
             scaled = param.scaled
             moltype = param.moltype
-            yield ConcreteSketchDatabase(ksize=ksize,
-                                         moltype=moltype,
-                                         scaled=scaled,
-                                         parent=self)
+            yield ConcreteSketchDatabase(
+                ksize=ksize, moltype=moltype, scaled=scaled, parent=self
+            )
 
     def json(self):
         d = dict(self.__dict__)

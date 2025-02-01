@@ -31,9 +31,12 @@ gtdb220 = GenomeCollection(
 gtdb220_entire_dna = SketchDatabases(
     short="gtdb220_entire_dna",
     collection=gtdb220,
-    params=[Params(ksize=21, moltype="DNA", scaled=1000),
-            Params(ksize=31, moltype="DNA", scaled=1000),
-            Params(ksize=51, moltype="DNA", scaled=1000)],
+    description="all GTDB genomes",
+    params=[
+        Params(ksize=21, moltype="DNA", scaled=1000),
+        Params(ksize=31, moltype="DNA", scaled=1000),
+        Params(ksize=51, moltype="DNA", scaled=1000),
+    ],
     fmt="zip",
     index_type="zipfile",
     filename="gtdb-rs220/gtdb-rs220-k{ksize}.zip",
@@ -68,10 +71,13 @@ ncbi_viruses_2025_01 = GenomeCollection(
 
 ncbi_viruses_2025_01_dna = SketchDatabases(
     short="ncbi_viruses_2025_01_dna",
+    description="all viral genomes",
     collection=ncbi_viruses_2025_01,
-    params=[Params(ksize=21, moltype="DNA", scaled=50),
-            Params(ksize=31, moltype="DNA", scaled=50),
-            Params(ksize=24, moltype="skip_m2n3", scaled=50)],
+    params=[
+        Params(ksize=21, moltype="DNA", scaled=50),
+        Params(ksize=31, moltype="DNA", scaled=50),
+        Params(ksize=24, moltype="skip_m2n3", scaled=50),
+    ],
     fmt="zip",
     index_type="zipfile",
     filename="ncbi-viruses-2025.01/ncbi-viruses.{moltype_l}.k={ksize}.scaled={scaled}.sig.zip",
@@ -92,7 +98,7 @@ ncbi_euk_tax = Taxonomy(
 ncbi_euks_2025_01 = GenomeCollection(
     short="ncbi_euks_2025_01",
     title="NCBI Eukaryotes",
-    description="All eukaryotes from NCBI (NCBI:txid2759)",
+    description="All eukaryotic reference genomes from NCBI (NCBI:txid2759)",
     category="viruses",
     sources=["ncbi"],
     links=[
@@ -106,11 +112,78 @@ ncbi_euks_2025_01 = GenomeCollection(
 
 ncbi_euks_2025_01_vert = SketchDatabases(
     short="ncbi_euks_vertebrates",
+    description="vertebrate reference genomes (NCBI:txid7742)",
     collection=ncbi_euks_2025_01,
-    params=[Params(ksize=51, moltype="DNA", scaled=10000),],
+    params=[
+        Params(ksize=51, moltype="DNA", scaled=10000),
+    ],
     fmt="zip",
     index_type="zipfile",
     filename="genbank-euks-2024.01/vertebrates.k={ksize}.sig.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
+ncbi_euk_2025_01_bilateria = SketchDatabases(
+    short="ncbi_euks_bilateria_no_vert",
+    description="bilateria minus the vertebrates",
+    collection=ncbi_euks_2025_01,
+    params=[
+        Params(ksize=51, moltype="DNA", scaled=10000),
+    ],
+    fmt="zip",
+    index_type="zipfile",
+    filename="genbank-euks-2024.01/bilateria-minus-vertebrates.k={ksize}.sig.zip",
+    download_url=f"{BASE_URL}/{{filename}}",
+)
+
+ncbi_euk_2025_01_plants = SketchDatabases(
+    short="ncbi_euks_plants",
+    description="plant reference genomes (NCBI:txid33090)",
+    collection=ncbi_euks_2025_01,
+    params=[
+        Params(ksize=51, moltype="DNA", scaled=10000),
+    ],
+    fmt="zip",
+    index_type="zipfile",
+    filename="genbank-euks-2024.01/plants.k={ksize}.sig.zip",
+    download_url=f"{BASE_URL}/{{filename}}",
+)
+
+ncbi_euks_2025_01_fungi = SketchDatabases(
+    short="ncbi_euks_fungi",
+    description="fungal reference genomes (NCBI:txid4751)",
+    collection=ncbi_euks_2025_01,
+    params=[
+        Params(ksize=51, moltype="DNA", scaled=10000),
+    ],
+    fmt="zip",
+    index_type="zipfile",
+    filename="genbank-euks-2024.01/fungi.k={ksize}.sig.zip",
+    download_url=f"{BASE_URL}/{{filename}}",
+)
+
+ncbi_euks_2025_01_metazoa = SketchDatabases(
+    short="ncbi_euks_metazoa",
+    description="metazoan reference genomes minus the bilateria",
+    collection=ncbi_euks_2025_01,
+    params=[
+        Params(ksize=51, moltype="DNA", scaled=10000),
+    ],
+    fmt="zip",
+    index_type="zipfile",
+    filename="genbank-euks-2024.01/metazoa-minus-bilateria.k={ksize}.sig.zip",
+    download_url=f"{BASE_URL}/{{filename}}",
+)
+
+ncbi_euks_2025_01_other = SketchDatabases(
+    short="ncbi_euks_other",
+    description="remaining eukaryotes (not plants, fungi, or metazoa)",
+    collection=ncbi_euks_2025_01,
+    params=[
+        Params(ksize=51, moltype="DNA", scaled=10000),
+    ],
+    fmt="zip",
+    index_type="zipfile",
+    filename="genbank-euks-2024.01/other.k={ksize}.sig.zip",
+    download_url=f"{BASE_URL}/{{filename}}",
+)

@@ -54,7 +54,7 @@ def main(argv=sys.argv[1:]):
     for coll in collections:
         print(f"checking: {coll.short} == {args.set_collection}")
         if coll.short == args.set_collection:
-            print('found!')
+            print("found!")
             match = coll
             break
 
@@ -66,7 +66,7 @@ def main(argv=sys.argv[1:]):
         sys.exit(-1)
 
     values = dict(coll=match)
-    
+
     render_template(args.template_md, values=values, outpath=args.output)
 
 

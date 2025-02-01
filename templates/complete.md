@@ -10,7 +10,7 @@ Links:
 Files:
 {% for db in coll.sketches %}
 {% for dbfile in db.files -%}
-   * {{ dbfile.fmt }}: [{{ dbfile.basename }}]({{ dbfile.download_url }}) - {{ dbfile.moltype }}, k={{ dbfile.ksize }}, scaled={{ dbfile.scaled }}
+   * {{ dbfile.fmt }}: [{{ dbfile.basename }}]({{ dbfile.download_url }}) - {{ dbfile.description }} - {{ dbfile.moltype }}, k={{ dbfile.ksize }}, scaled={{ dbfile.scaled }}
 {% endfor %}
 {% endfor %}
 
