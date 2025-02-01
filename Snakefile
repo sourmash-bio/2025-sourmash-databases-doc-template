@@ -1,8 +1,36 @@
+from collections import namedtuple
+
 TEMPLATES, = glob_wildcards('templates/{filename}.md')
+
+Templates_To_Output = namedtuple("Templates_To_Output",
+                                 ['dbname', 'template_name', 'output_md'])
+
+templates = [
+    Templates_To_Output('gtdb220_entire_dna',
+                        'complete',
+                        'outputs/md/gtdb220_entire_dna.md'),
+]
+
+def get_template_path(w):
+    print('gtp', w)
+    for t in templates:
+        if t.output_md == f'outputs/md/{w.db}.md':
+            x = f'templates/{t.template_name}.md'
+            print('get_template_path', t, x)
+            return x
+
+def get_template_name(w):
+    for t in templates:
+        if t.output_md == f'outputs/md/{w.db}.md':
+            x = f'{t.template_name}.md'
+            print('get_template_name', t, x)
+            return x
+
+### rules
 
 rule default:
     input:
-        "outputs/md/gtdb_entire_dna.md",
+        "outputs/md/gtdb220_entire_dna.md",
 
 
 rule make_db_descr:
@@ -15,27 +43,16 @@ rule make_db_descr:
     """
 
 
-rule make_md_from_template:
-    input:
-        template='templates/{name}.md',
-        script='scripts/make-md.py',
-        pickle='outputs/databases.pickle',
-    output:
-        md='outputs/md/{name}.md',
-    shell: """
-        {input.script} {input.pickle} {wildcards.name}.md -o {output.md}
-    """
-
 rule make_gtdb:
     input:
         script='scripts/make-md.py',
         pickle='outputs/databases.pickle',
-        template_path="templates/complete.md"
+        template_path=get_template_path,
     output:
-        "outputs/md/gtdb_entire_dna.md",
+        "outputs/md/{db}.md",
     params:
-        db="gtdb220_entire_dna",
-        template="complete.md",
+        template=get_template_name,
     shell: """
-        {input.script} {input.pickle} {params.template} --db {params.db} -o {output}
+        {input.script} {input.pickle} {params.template} \
+            --db {wildcards.db} -o {output}
     """
