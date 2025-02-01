@@ -9,7 +9,7 @@ gtdb220_tax = Taxonomy(
     title="GTDB RS220 taxonomy",
     description="GTDB taxonomy for RS220",
     source="gtdb",
-    lineage_file="gtdbrs220_taxonomy_file",
+    lineage_file="gtdb-rs220.lineages.csv",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 

@@ -38,6 +38,7 @@ def main(argv=sys.argv[1:]):
     p = argparse.ArgumentParser()
     p.add_argument("databases_pickle")
     p.add_argument("template_md")
+    p.add_argument("--set-database", "--db", required=True)
     p.add_argument("-o", "--output", required=True)
     args = p.parse_args(argv)
 
@@ -50,8 +51,10 @@ def main(argv=sys.argv[1:]):
 
     # CTB: select database here, I think, based on CLI.
 
-    values = [(db.short, db) for db in databases]
-    print(values)
+    match = [ db for db in databases if db.short == args.set_database ]
+    assert len(match) == 1, len(match)
+    values = dict(db=match[0])
+    
     render_template(args.template_md, values=values, outpath=args.output)
 
 

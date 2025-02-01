@@ -13,4 +13,4 @@ Files:
 
 ## Taxonomy files:
 
-* [GTDB taxonomy for RS220](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdbrs220_taxonomy_file)
+* [GTDB taxonomy for RS220](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220.lineages.csv)
