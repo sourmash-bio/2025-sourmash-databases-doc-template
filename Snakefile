@@ -9,6 +9,9 @@ templates = [
     Templates_To_Output('gtdb220_entire_dna',
                         'complete',
                         'outputs/md/gtdb220_entire_dna.md'),
+    Templates_To_Output('ncbi_viruses_2025_01',
+                        'complete',
+                        'outputs/md/ncbi_viruses_2025_01.md'),
 ]
 
 def get_template_path(w):
@@ -30,7 +33,7 @@ def get_template_name(w):
 
 rule default:
     input:
-        "outputs/md/gtdb220_entire_dna.md",
+        [ t.output_md for t in templates ],
 
 
 rule make_db_descr:

@@ -1,7 +1,7 @@
 BASE_URL = "https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db"
 FILE_PATH = "@CTB"
 
-from dd_utils import Taxonomy, GenomeCollection, SketchDatabases
+from dd_utils import Taxonomy, GenomeCollection, SketchDatabases, Params
 
 
 gtdb220_tax = Taxonomy(
@@ -31,11 +31,49 @@ gtdb220 = GenomeCollection(
 gtdb220_entire_dna = SketchDatabases(
     short="gtdb220_entire_dna",
     collection=gtdb220,
-    moltypes=["DNA"],
-    ksizes=[21, 31, 51],
-    scaled=1000,
+    params=[Params(ksize=21, moltype="DNA", scaled=1000),
+            Params(ksize=31, moltype="DNA", scaled=1000),
+            Params(ksize=51, moltype="DNA", scaled=1000)],
     fmt="zip",
     index_type="zipfile",
     filename="gtdb-rs220/gtdb-rs220-k{ksize}.zip",
+    download_url=f"{BASE_URL}/{{filename}}",
+)
+
+###
+
+ncbi_virus_tax = Taxonomy(
+    short="ncbi_virus_tax",
+    title="NCBI viral taxonomy",
+    description="NCBI taxonomy for viruses",
+    source="ncbi",
+    lineage_file="ncbi-viruses.lineages.csv",
+    download_url=f"{BASE_URL}/{{filename}}",
+)
+
+ncbi_viruses = GenomeCollection(
+    short="ncbi_viruses",
+    title="NCBI Viruses",
+    description="All viruses from NCBI (NCBI:txid10239)",
+    category="viruses",
+    sources=["ncbi"],
+    links=[
+        (
+            "NCBI Taxonomy",
+            "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=10239&lvl=3&lin=f&keep=1&srchmode=1&unlock",
+        )
+    ],
+    taxonomies=[ncbi_virus_tax],
+)
+
+ncbi_viruses_2025_01 = SketchDatabases(
+    short="ncbi_viruses_2025_01",
+    collection=ncbi_viruses,
+    params=[Params(ksize=21, moltype="DNA", scaled=50),
+            Params(ksize=31, moltype="DNA", scaled=50),
+            Params(ksize=24, moltype="skip_m2n3", scaled=50)],
+    fmt="zip",
+    index_type="zipfile",
+    filename="ncbi-viruses-2025.01/ncbi-viruses.{moltype_l}.k={ksize}.scaled={scaled}.sig.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )

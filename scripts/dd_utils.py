@@ -10,6 +10,30 @@
 import os
 
 
+class Params:
+    def __init__(self, *, ksize, moltype, scaled):
+        self.ksize = int(ksize)
+        self.moltype = moltype
+        self.scaled = int(scaled)
+        self._validate()
+
+    def _validate(self):
+        assert self.ksize >= 4, self.ksize
+        assert self.ksize <= 101, self.ksize
+
+        assert self.moltype in {
+                "DNA",
+                "protein",
+                "skip_m1n3",
+                "skip_m2n3",
+                "dayhoff",
+                "hp",
+            }, (moltype, self.moltypes)
+
+        assert self.scaled >= 1, self.scaled
+        assert self.scaled <= 1e9, self.scaled
+
+
 class Taxonomy:
     def __init__(
         self, *, short, title, description, source, lineage_file, download_url
@@ -67,15 +91,20 @@ class GenomeCollection:
 
 
 class ConcreteSketchDatabase:
-    def __init__(self, *, ksize, moltype, parent):
+    def __init__(self, *, ksize, moltype, scaled, parent):
         self.ksize = ksize
         self.moltype = moltype
-        self.scaled = parent.scaled
+        self.scaled = scaled
         self.fmt = parent.fmt
-        self.filename = parent.filename.format(ksize=ksize, moltype=moltype)
-        self.download_url = parent.download_url.format(
-            ksize=ksize, moltype=moltype, filename=self.filename
-        )
+
+        format_d = dict(ksize=ksize,
+                        moltype=moltype,
+                        moltype_l=moltype.lower(),
+                        scaled=scaled)
+        self.filename = parent.filename.format(**format_d)
+
+        format_d['filename'] = self.filename
+        self.download_url = parent.download_url.format(**format_d)
 
     @property
     def basename(self):
@@ -88,9 +117,7 @@ class SketchDatabases:
         *,
         short,
         collection,
-        ksizes,
-        moltypes,
-        scaled,
+            params,
         fmt,
         index_type,
         download_url,
@@ -100,34 +127,15 @@ class SketchDatabases:
         self.collection = collection
 
         self.short = str(short)
-        self.ksizes = list(map(int, ksizes))
-        self.moltypes = list(moltypes)
-        self.scaled = int(scaled)
+        self.params = params
         self.fmt = fmt
         self.index_type = index_type
         self.filename = str(filename)
         self.download_url = str(download_url)
 
         self._validate()
-        print("XXX", self.ksizes)
 
     def _validate(self):
-        assert min(self.ksizes) >= 4, self.ksizes
-        assert max(self.ksizes) <= 101, self.ksizes
-
-        for moltype in self.moltypes:
-            assert moltype in {
-                "DNA",
-                "protein",
-                "skipm1n3",
-                "skipm2n3",
-                "dayhoff",
-                "hp",
-            }, (moltype, self.moltypes)
-
-        assert self.scaled >= 1, self.scaled
-        assert self.scaled <= 1e9, self.scaled
-
         assert self.fmt in {"zip", "tar.gz"}
         assert self.index_type in {"zipfile", "lca.json", "rocksdb"}
 
@@ -146,9 +154,14 @@ class SketchDatabases:
 
     @property
     def files(self):
-        for k in self.ksizes:
-            for moltype in self.moltypes:
-                yield ConcreteSketchDatabase(ksize=k, moltype=moltype, parent=self)
+        for param in self.params:
+            ksize = param.ksize
+            scaled = param.scaled
+            moltype = param.moltype
+            yield ConcreteSketchDatabase(ksize=ksize,
+                                         moltype=moltype,
+                                         scaled=scaled,
+                                         parent=self)
 
     def json(self):
         d = dict(self.__dict__)

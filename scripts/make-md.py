@@ -51,9 +51,17 @@ def main(argv=sys.argv[1:]):
 
     # CTB: select database here, I think, based on CLI.
 
-    match = [ db for db in databases if db.short == args.set_database ]
-    assert len(match) == 1, len(match)
-    values = dict(db=match[0])
+    match = None
+    for db in databases:
+        print(f"checking: {db.short} == {args.set_database}")
+        if db.short == args.set_database:
+            print('found!')
+            match = db
+            break
+
+    if match is None:
+        assert 0, "not found"
+    values = dict(db=match)
     
     render_template(args.template_md, values=values, outpath=args.output)
 

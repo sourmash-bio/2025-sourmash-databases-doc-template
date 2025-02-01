@@ -11,6 +11,7 @@ import json
 
 databases = [
     gtdb220_entire_dna,
+    ncbi_viruses_2025_01,
 ]
 
 
