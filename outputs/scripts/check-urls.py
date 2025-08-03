@@ -6,21 +6,21 @@ import requests
 import sys
 
 urls = [
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k21.dna.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k31.dna.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k51.dna.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs226-k21.dna.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs226-k31.dna.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs226-k51.dna.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses-2025.01/ncbi-viruses-2025.01.dna.k=21.sig.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses-2025.01/ncbi-viruses-2025.01.dna.k=31.sig.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses-2025.01/ncbi-viruses-2025.01.skip_m2n3.k=24.sig.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-vertebrates-2025.01.dna.k=51.sig.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-bilateria-minus-vertebrates-2025.01.dna.k=51.sig.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-plants-2025.01.dna.k=51.sig.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-fungi-2025.01.dna.k=51.sig.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-metazoa-minus-bilateria-2025.01.dna.k=51.sig.zip',
-'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-other-2025.01.dna.k=51.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs220/gtdb-rs220-k21.dna.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs220/gtdb-rs220-k31.dna.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs220/gtdb-rs220-k51.dna.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs220/gtdb-rs226-k21.dna.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs220/gtdb-rs226-k31.dna.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs220/gtdb-rs226-k51.dna.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/ncbi-viruses-2025.01/ncbi-viruses-2025.01.dna.k=21.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/ncbi-viruses-2025.01/ncbi-viruses-2025.01.dna.k=31.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/ncbi-viruses-2025.01/ncbi-viruses-2025.01.skip_m2n3.k=24.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-euks-vertebrates-2025.01.dna.k=51.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-euks-bilateria-minus-vertebrates-2025.01.dna.k=51.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-euks-plants-2025.01.dna.k=51.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-euks-fungi-2025.01.dna.k=51.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-euks-metazoa-minus-bilateria-2025.01.dna.k=51.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-euks-other-2025.01.dna.k=51.sig.zip',
 ]
 
 def main():

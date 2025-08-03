@@ -1,4 +1,4 @@
-BASE_URL = "https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db"
+BASE_URL = "https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new"
 FILE_PATH = "@CTB"
 
 from dd_utils import Taxonomy, GenomeCollection, SketchDatabases, Params
