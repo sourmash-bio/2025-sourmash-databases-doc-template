@@ -2,3 +2,5 @@
 __pycache__
 outputs
 .snakemake
+preview/generated/
+site/

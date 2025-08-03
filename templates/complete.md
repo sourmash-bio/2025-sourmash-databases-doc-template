@@ -1,6 +1,9 @@
-# Collection: {{ coll.title }} - {{ coll.description }}
+# Collection: {{ coll.title }}
+
+{{ coll.description }}
 
 Links:
+
 {% for (descr, url) in coll.links -%}
 * [{{ descr }}]({{ url }})
 {%- endfor %}
@@ -19,3 +22,16 @@ Files:
 {% for tax in coll.taxonomies -%}
 * [{{ tax.description }}]({{ tax.download_url }})
 {% endfor %}
+
+## Advanced
+
+### Download commands
+
+```shell
+{% for db in coll.sketches -%}
+{% for dbfile in db.files -%}
+# download {{dbfile.basename}}
+curl -O --no-clobber {{ dbfile.download_url }}
+{% endfor -%}
+{% endfor -%}
+```
