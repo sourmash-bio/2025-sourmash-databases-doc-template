@@ -19,7 +19,10 @@ You'll also need to:
 * update `mkdocs.yml` if you want to preview the new db;
 * update `doc/databases.md` in sourmash to include a direct link to the generated file.
 
+## Validating database links
 
+Run `outputs/scripts/check-urls.py` to check that all the database and
+taxonomy URLs are valid.
 
 ## Notes on database naming conventions:
 
