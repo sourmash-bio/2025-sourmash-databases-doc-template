@@ -42,6 +42,7 @@ def get_template_name(w):
 rule default:
     input:
         [ t.output_md for t in templates ],
+        "outputs/scripts/check-urls.py",
 
 
 rule make_db_descr:
@@ -55,7 +56,7 @@ rule make_db_descr:
     """
 
 
-rule make_gtdb:
+rule make_db_md:
     input:
         script='scripts/make-md.py',
         pickle='outputs/collections.pickle',
@@ -67,4 +68,18 @@ rule make_gtdb:
     shell: """
         {input.script} {input.pickle} {params.template} \
             --set-collection {wildcards.db} -o {output}
+    """
+
+rule make_check_script:
+    input:
+        script="scripts/make-file.py",
+        pickle='outputs/collections.pickle',
+        template="templates/check-urls.py",
+    output:
+        "outputs/scripts/check-urls.py",
+    params:
+        template_name="check-urls.py"
+    shell: """
+        {input.script} {input.pickle} {params.template_name} -o {output}
+        chmod +x {output}
     """

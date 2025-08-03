@@ -1,0 +1,33 @@
+#! /usr/bin/env python
+import requests
+import sys
+
+urls = [
+{% for coll in collections -%}
+{% for db in coll.sketches -%}
+{% for dbfile in db.files -%}
+    '{{ dbfile.download_url }}',
+{% endfor -%}
+{% endfor -%}
+{% endfor -%}
+]
+
+def main():
+    n_failed = 0
+    for url in urls:
+        x = requests.head(url)
+
+        if x.status_code != 200:
+            print('ERROR: the following URL does not exist.')
+            print(url)
+            n_failed += 1
+
+    if n_failed > 0:
+        print(f'{n_failed} of {len(urls)} failed. See errors above.')
+        return -1
+    else:
+        return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())
