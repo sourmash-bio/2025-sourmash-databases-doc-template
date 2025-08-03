@@ -7,7 +7,7 @@ Links:
 
 Files:
 
-* zip: [vertebrates-2025.01.dna.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/vertebrates-2025.01.dna.k=51.sig.zip) - vertebrate reference genomes (NCBI:txid7742) - DNA, k=51, scaled=10000
+* zip: [ncbi-euks-vertebrates-2025.01.dna.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-vertebrates-2025.01.dna.k=51.sig.zip) - vertebrate reference genomes (NCBI:txid7742) - DNA, k=51, scaled=10000
 
 
 * zip: [ncbi-euks-bilateria-minus-vertebrates-2025.01.dna.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-bilateria-minus-vertebrates-2025.01.dna.k=51.sig.zip) - bilateria minus the vertebrates - DNA, k=51, scaled=10000
@@ -28,4 +28,4 @@ Files:
 
 ## Taxonomy files:
 
-* [NCBI taxonomy for eukaryotes (NCBI:txid2759)](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-eukaryotes.lineages.csv)
+* [NCBI taxonomy for eukaryotes (NCBI:txid2759)](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-eukaryotes.2025.01.lineages.csv)

@@ -2,7 +2,9 @@
 
 Edit [scripts/databases.py](scripts/databases.py) to add databases.
 
-Look at [outputs/md](outputs/md).
+Also add to 'collections' list at top of `scripts/make-md.py`.
+
+Run `snakemake -j 1`. Then look at [outputs/md](outputs/md) to see output.
 
 ## Notes
 

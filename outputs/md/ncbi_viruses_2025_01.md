@@ -15,4 +15,4 @@ Files:
 
 ## Taxonomy files:
 
-* [NCBI taxonomy for viruses](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses.lineages.csv)
+* [NCBI taxonomy for viruses](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses.2025.01.lineages.csv)

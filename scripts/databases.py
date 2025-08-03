@@ -3,6 +3,7 @@ FILE_PATH = "@CTB"
 
 from dd_utils import Taxonomy, GenomeCollection, SketchDatabases, Params
 
+### GTDB rs220
 
 gtdb220_tax = Taxonomy(
     short="gtdb220",
@@ -43,14 +44,55 @@ gtdb220_entire_dna = SketchDatabases(
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
-###
+### GTDB rs226
 
-ncbi_virus_tax = Taxonomy(
-    short="ncbi_virus_tax",
+gtdb226_tax = Taxonomy(
+    short="gtdb226",
+    title="GTDB RS226 taxonomy",
+    description="GTDB taxonomy for RS226",
+    source="gtdb",
+    lineage_file="gtdb-rs226.lineages.csv",
+    download_url=f"{BASE_URL}/{{filename}}",
+)
+
+gtdb226 = GenomeCollection(
+    short="gtdb226",
+    title="GTDB RS226",
+    description="All Bacteria and Archaea from GTDB RS226",
+    category="bac+arc",
+    sources=["gtdb", "ncbi"],
+    links=[
+        (
+            "Announcement",
+            "https://forum.gtdb.ecogenomic.org/t/announcing-gtdb-r10-rs226/724",
+        )
+    ],
+    taxonomies=[gtdb226_tax],
+)
+
+gtdb226_entire_dna = SketchDatabases(
+    short="gtdb226_entire_dna",
+    collection=gtdb226,
+    description="all GTDB genomes",
+    params=[
+        Params(ksize=21, moltype="DNA", scaled=1000),
+        Params(ksize=31, moltype="DNA", scaled=1000),
+        Params(ksize=51, moltype="DNA", scaled=1000),
+    ],
+    fmt="zip",
+    index_type="zipfile",
+    filename="gtdb-rs220/gtdb-rs226-k{ksize}.dna.zip",
+    download_url=f"{BASE_URL}/{{filename}}",
+)
+
+### NCBI viruses
+
+ncbi_virus_tax_2025_01 = Taxonomy(
+    short="ncbi_virus_tax_2025_01",
     title="NCBI viral taxonomy",
     description="NCBI taxonomy for viruses",
     source="ncbi",
-    lineage_file="ncbi-viruses.lineages.csv",
+    lineage_file="ncbi-viruses.2025.01.lineages.csv",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -66,7 +108,7 @@ ncbi_viruses_2025_01 = GenomeCollection(
             "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=10239&lvl=3&lin=f&keep=1&srchmode=1&unlock",
         )
     ],
-    taxonomies=[ncbi_virus_tax],
+    taxonomies=[ncbi_virus_tax_2025_01],
 )
 
 ncbi_viruses_2025_01_dna = SketchDatabases(
@@ -84,14 +126,14 @@ ncbi_viruses_2025_01_dna = SketchDatabases(
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
-###
+### NCBI Eukaryotes
 
-ncbi_euk_tax = Taxonomy(
-    short="ncbi_euk_tax",
+ncbi_euk_tax_2025_01 = Taxonomy(
+    short="ncbi_euk_tax_2025_01",
     title="NCBI eukaryotic taxonomy",
     description="NCBI taxonomy for eukaryotes (NCBI:txid2759)",
     source="ncbi",
-    lineage_file="ncbi-eukaryotes.lineages.csv",
+    lineage_file="ncbi-eukaryotes.2025.01.lineages.csv",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -107,7 +149,7 @@ ncbi_euks_2025_01 = GenomeCollection(
             "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=2759&lvl=3&lin=f&keep=1&srchmode=1&unlock",
         )
     ],
-    taxonomies=[ncbi_euk_tax],
+    taxonomies=[ncbi_euk_tax_2025_01],
 )
 
 ncbi_euks_2025_01_vert = SketchDatabases(
@@ -119,7 +161,7 @@ ncbi_euks_2025_01_vert = SketchDatabases(
     ],
     fmt="zip",
     index_type="zipfile",
-    filename="genbank-euks-2025.01/vertebrates-2025.01.dna.k={ksize}.sig.zip",
+    filename="genbank-euks-2025.01/ncbi-euks-vertebrates-2025.01.dna.k={ksize}.sig.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
