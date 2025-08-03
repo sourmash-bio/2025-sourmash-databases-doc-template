@@ -43,6 +43,7 @@ rule default:
     input:
         [ t.output_md for t in templates ],
         "outputs/scripts/check-urls.py",
+        "outputs/md/databases.md",
 
 
 rule make_db_descr:
@@ -79,6 +80,20 @@ rule make_check_script:
         "outputs/scripts/check-urls.py",
     params:
         template_name="check-urls.py"
+    shell: """
+        {input.script} {input.pickle} {params.template_name} -o {output}
+        chmod +x {output}
+    """
+
+rule make_databases:
+    input:
+        script="scripts/make-file.py",
+        pickle='outputs/collections.pickle',
+        template="templates/databases.md",
+    output:
+        "outputs/md/databases.md",
+    params:
+        template_name="databases.md",
     shell: """
         {input.script} {input.pickle} {params.template_name} -o {output}
         chmod +x {output}

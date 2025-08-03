@@ -3,10 +3,11 @@ docs_dir: ./preview/
 
 nav:
 - Home: index.md
-- generated/gtdb220.md
-- generated/gtdb226.md
-- generated/ncbi_euks_2025_01.md
-- generated/ncbi_viruses_2025_01.md
+- Databases: generated/databases.md
+- GTDB RS220: generated/gtdb220.md
+- GTDB RS226: generated/gtdb226.md
+- NCBI eukaryotes (Jan 2025): generated/ncbi_euks_2025_01.md
+- NCBI viruses (Jan 2025): generated/ncbi_viruses_2025_01.md
 
 markdown_extensions:
   - toc:

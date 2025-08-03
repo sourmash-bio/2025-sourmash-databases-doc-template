@@ -11,10 +11,11 @@ import os
 
 
 class Params:
-    def __init__(self, *, ksize, moltype, scaled):
+    def __init__(self, *, ksize, moltype, scaled, size_gb):
         self.ksize = int(ksize)
         self.moltype = moltype
         self.scaled = int(scaled)
+        self.size_gb = float(size_gb)
         self._validate()
 
     def _validate(self):
@@ -92,10 +93,11 @@ class GenomeCollection:
 
 
 class ConcreteSketchDatabase:
-    def __init__(self, *, ksize, moltype, scaled, parent):
+    def __init__(self, *, ksize, moltype, scaled, parent, size_gb):
         self.ksize = ksize
         self.moltype = moltype
         self.scaled = scaled
+        self.size_gb = size_gb
         self.fmt = parent.fmt
         self.description = parent.description
 
@@ -161,8 +163,10 @@ class SketchDatabases:
             ksize = param.ksize
             scaled = param.scaled
             moltype = param.moltype
+            size_gb = param.size_gb
             yield ConcreteSketchDatabase(
-                ksize=ksize, moltype=moltype, scaled=scaled, parent=self
+                ksize=ksize, moltype=moltype, scaled=scaled, parent=self,
+                size_gb=size_gb,
             )
 
     def json(self):
