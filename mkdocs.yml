@@ -1,0 +1,36 @@
+site_name: database-template-preview
+docs_dir: ./preview/
+
+nav:
+- Home: index.md
+- Databases: generated/databases.md
+- GTDB RS220: generated/gtdb220.md
+- GTDB RS226: generated/gtdb226.md
+- NCBI eukaryotes (Jan 2025): generated/ncbi_euks_2025_01.md
+- NCBI viruses (Jan 2025): generated/ncbi_viruses_2025_01.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - def_list
+  - attr_list
+  - admonition
+
+plugins:
+  - search
+
+theme:
+  name: material
+  features:
+    - content.code.annotate
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - content.code.copy
+    

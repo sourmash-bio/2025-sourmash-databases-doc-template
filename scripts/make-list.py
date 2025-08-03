@@ -11,6 +11,7 @@ import json
 
 collections = [
     gtdb220,
+    gtdb226,
     ncbi_viruses_2025_01,
     ncbi_euks_2025_01,
 ]
