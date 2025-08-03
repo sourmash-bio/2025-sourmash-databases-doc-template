@@ -40,7 +40,7 @@ gtdb220_entire_dna = SketchDatabases(
     ],
     fmt="zip",
     index_type="zipfile",
-    filename="gtdb-rs220/gtdb-rs220-k{ksize}.zip",
+    filename="gtdb-rs220/gtdb-rs220-k{ksize}.dna.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 

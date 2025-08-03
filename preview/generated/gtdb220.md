@@ -10,9 +10,9 @@ Links:
 
 Files:
 
-* zip: [gtdb-rs220-k21.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k21.zip) - all GTDB genomes - DNA, k=21, scaled=1000
-* zip: [gtdb-rs220-k31.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k31.zip) - all GTDB genomes - DNA, k=31, scaled=1000
-* zip: [gtdb-rs220-k51.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k51.zip) - all GTDB genomes - DNA, k=51, scaled=1000
+* zip: [gtdb-rs220-k21.dna.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k21.dna.zip) - all GTDB genomes - DNA, k=21, scaled=1000
+* zip: [gtdb-rs220-k31.dna.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k31.dna.zip) - all GTDB genomes - DNA, k=31, scaled=1000
+* zip: [gtdb-rs220-k51.dna.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k51.dna.zip) - all GTDB genomes - DNA, k=51, scaled=1000
 
 
 
@@ -26,10 +26,10 @@ Files:
 ### Download commands
 
 ```shell
-# download gtdb-rs220-k21.zip
-curl -O --no-clobber https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k21.zip
-# download gtdb-rs220-k31.zip
-curl -O --no-clobber https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k31.zip
-# download gtdb-rs220-k51.zip
-curl -O --no-clobber https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k51.zip
+# download gtdb-rs220-k21.dna.zip
+curl -O --no-clobber https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k21.dna.zip
+# download gtdb-rs220-k31.dna.zip
+curl -O --no-clobber https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k31.dna.zip
+# download gtdb-rs220-k51.dna.zip
+curl -O --no-clobber https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k51.dna.zip
 ```

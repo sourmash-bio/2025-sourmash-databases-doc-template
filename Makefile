@@ -10,7 +10,6 @@ preview: build
 	rm -fr preview/generated
 	mkdir -p preview/generated/
 	cp outputs/md/*.md preview/generated/
-	#mkdocs build
 
 format:
 	black scripts

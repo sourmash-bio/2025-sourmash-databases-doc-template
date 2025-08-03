@@ -1,0 +1,41 @@
+#! /usr/bin/env python
+import requests
+import sys
+
+urls = [
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k21.dna.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k31.dna.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs220-k51.dna.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs226-k21.dna.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs226-k31.dna.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs220/gtdb-rs226-k51.dna.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses-2025.01/ncbi-viruses-2025.01.dna.k=21.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses-2025.01/ncbi-viruses-2025.01.dna.k=31.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses-2025.01/ncbi-viruses-2025.01.skip_m2n3.k=24.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-vertebrates-2025.01.dna.k=51.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-bilateria-minus-vertebrates-2025.01.dna.k=51.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-plants-2025.01.dna.k=51.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-fungi-2025.01.dna.k=51.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-metazoa-minus-bilateria-2025.01.dna.k=51.sig.zip',
+'https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-other-2025.01.dna.k=51.sig.zip',
+]
+
+def main():
+    n_failed = 0
+    for url in urls:
+        x = requests.head(url)
+
+        if x.status_code != 200:
+            print('ERROR: the following URL does not exist.')
+            print(url)
+            n_failed += 1
+
+    if n_failed > 0:
+        print(f'{n_failed} of {len(urls)} failed. See errors above.')
+        return -1
+    else:
+        return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())
