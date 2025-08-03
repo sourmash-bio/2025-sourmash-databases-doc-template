@@ -144,7 +144,6 @@ class SketchDatabases:
         assert self.index_type in {"zipfile", "lca.json", "rocksdb"}
 
     def __getattr__(self, name):
-        print(name)
         if name in self.__dict__:
             return self.__dict__[name]
         elif not name.startswith("_"):
