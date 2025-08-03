@@ -1,12 +1,19 @@
 # 2025-sourmash-databases-doc-template
 
+This repo uses Jinja2 templating to automatically produce Markdown
+files describing the available sourmash databases. It also produces
+automated scripts that check that the relevant files are available for
+download.
+
+## Basic instructions
+
 Run `make`. Then look at [outputs/md](outputs/md) to see output markdown.
 
 ## Previewing formatting with mkdocs
 
 Run `mkdocs serve` to see the generated files.
 
-## Updating sourmash database list
+## Updating the database list in the sourmash docs
 
 Copy all the files in `outputs/md/` into the sourmash repo under `doc/databases-md/`.
 
