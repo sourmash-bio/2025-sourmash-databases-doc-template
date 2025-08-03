@@ -38,6 +38,11 @@ curl -O --no-clobber {{ dbfile.download_url }}
 
 {% endfor -%}
 {% endfor -%}
+
+# download taxonomy file
+{% for tax in coll.taxonomies -%}
+curl -O --no-clobber {{ tax.download_url }}
+{% endfor -%}
 ```
 
 ### A list of all the URLs
@@ -47,5 +52,9 @@ curl -O --no-clobber {{ dbfile.download_url }}
 {% for dbfile in db.files -%}
 {{ dbfile.download_url }}
 {% endfor -%}
+{% endfor -%}
+
+{% for tax in coll.taxonomies -%}
+{{ tax.download_url }}
 {% endfor -%}
 ```

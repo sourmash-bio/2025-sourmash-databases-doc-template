@@ -13,7 +13,7 @@ gtdb220_tax = Taxonomy(
     title="GTDB RS220 taxonomy",
     description="GTDB taxonomy for RS220.",
     source="gtdb",
-    lineage_file="gtdb-rs220.lineages.csv",
+    lineage_file="gtdb-rs220/gtdb-rs220.lineages.csv",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -54,7 +54,7 @@ gtdb226_tax = Taxonomy(
     title="GTDB RS226 taxonomy",
     description="GTDB taxonomy for RS226.",
     source="gtdb",
-    lineage_file="gtdb-rs226.lineages.csv",
+    lineage_file="gtdb-rs226/gtdb-rs226.lineages.csv",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -84,7 +84,7 @@ gtdb226_entire_dna = SketchDatabases(
     ],
     fmt="zip",
     index_type="zipfile",
-    filename="gtdb-rs220/gtdb-rs226-k{ksize}.dna.zip",
+    filename="gtdb-rs226/gtdb-rs226-k{ksize}.dna.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -95,7 +95,7 @@ ncbi_virus_tax_2025_01 = Taxonomy(
     title="NCBI viral taxonomy",
     description="NCBI taxonomy for viruses as of January 2025.",
     source="ncbi",
-    lineage_file="ncbi-viruses.2025.01.lineages.csv",
+    lineage_file="ncbi-viruses-2025.01/ncbi-viruses.2025.01.lineages.csv",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -136,7 +136,7 @@ ncbi_euk_tax_2025_01 = Taxonomy(
     title="NCBI eukaryotic taxonomy",
     description="NCBI taxonomy for eukaryotes (NCBI:txid2759) as of January 2025.",
     source="ncbi",
-    lineage_file="ncbi-eukaryotes.2025.01.lineages.csv",
+    lineage_file="genbank-euks-2025.01/ncbi-eukaryotes.2025.01.lineages.csv",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 

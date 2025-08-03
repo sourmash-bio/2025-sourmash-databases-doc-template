@@ -34,7 +34,7 @@ Files:
 
 ## Taxonomy files:
 
-* [NCBI taxonomy for eukaryotes (NCBI:txid2759) as of January 2025.](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/ncbi-eukaryotes.2025.01.lineages.csv)
+* [NCBI taxonomy for eukaryotes (NCBI:txid2759) as of January 2025.](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-eukaryotes.2025.01.lineages.csv)
 
 
 ## Advanced
@@ -60,6 +60,8 @@ curl -O --no-clobber https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genba
 # download ncbi-euks-other-2025.01.dna.k=51.sig.zip
 curl -O --no-clobber https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-euks-other-2025.01.dna.k=51.sig.zip
 
+# download taxonomy file
+curl -O --no-clobber https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-eukaryotes.2025.01.lineages.csv
 ```
 
 ### A list of all the URLs
@@ -71,4 +73,5 @@ https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-
 https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-euks-fungi-2025.01.dna.k=51.sig.zip
 https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-euks-metazoa-minus-bilateria-2025.01.dna.k=51.sig.zip
 https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-euks-other-2025.01.dna.k=51.sig.zip
+https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/genbank-euks-2025.01/ncbi-eukaryotes.2025.01.lineages.csv
 ```

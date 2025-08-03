@@ -12,6 +12,9 @@ urls = [
     '{{ dbfile.download_url }}',
 {% endfor -%}
 {% endfor -%}
+{% for tax in coll.taxonomies -%}
+    '{{ tax.download_url }}',
+{% endfor -%}
 {% endfor -%}
 ]
 
@@ -26,9 +29,10 @@ def main():
             n_failed += 1
 
     if n_failed > 0:
-        print(f'{n_failed} of {len(urls)} failed. See errors above.')
+        print(f'{n_failed} of {len(urls)} URLs failed. See errors above.')
         return -1
     else:
+        print(f'{len(urls)} URLs succeeded. Nice work!!')
         return 0
 
 
