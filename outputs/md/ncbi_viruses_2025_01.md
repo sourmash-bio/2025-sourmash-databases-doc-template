@@ -7,9 +7,9 @@ Links:
 
 Files:
 
-* zip: [ncbi-viruses.dna.k=21.scaled=50.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses-2025.01/ncbi-viruses.dna.k=21.scaled=50.sig.zip) - all viral genomes - DNA, k=21, scaled=50
-* zip: [ncbi-viruses.dna.k=31.scaled=50.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses-2025.01/ncbi-viruses.dna.k=31.scaled=50.sig.zip) - all viral genomes - DNA, k=31, scaled=50
-* zip: [ncbi-viruses.skip_m2n3.k=24.scaled=50.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses-2025.01/ncbi-viruses.skip_m2n3.k=24.scaled=50.sig.zip) - all viral genomes - skip_m2n3, k=24, scaled=50
+* zip: [ncbi-viruses-2025.01.dna.k=21.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses-2025.01/ncbi-viruses-2025.01.dna.k=21.sig.zip) - all viral genomes - DNA, k=21, scaled=50
+* zip: [ncbi-viruses-2025.01.dna.k=31.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses-2025.01/ncbi-viruses-2025.01.dna.k=31.sig.zip) - all viral genomes - DNA, k=31, scaled=50
+* zip: [ncbi-viruses-2025.01.skip_m2n3.k=24.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/ncbi-viruses-2025.01/ncbi-viruses-2025.01.skip_m2n3.k=24.sig.zip) - all viral genomes - skip_m2n3, k=24, scaled=50
 
 
 

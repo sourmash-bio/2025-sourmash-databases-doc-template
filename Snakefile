@@ -17,6 +17,7 @@ templates = [
                         'outputs/md/ncbi_euks_2025_01.md'),
 ]
 
+# retrieve path from a Templates_To_Output object
 def get_template_path(w):
     print('gtp', w)
     for t in templates:
@@ -25,6 +26,7 @@ def get_template_path(w):
             print('get_template_path', t, x)
             return x
 
+# retrieve name from a Templates_To_Output object
 def get_template_name(w):
     for t in templates:
         if t.output_md == f'outputs/md/{w.db}.md':
@@ -42,6 +44,7 @@ rule default:
 rule make_db_descr:
     input:
         script='scripts/make-list.py',
+        dbfoo='scripts/databases.py',
     output:
         pickle='outputs/collections.pickle',
     shell: """

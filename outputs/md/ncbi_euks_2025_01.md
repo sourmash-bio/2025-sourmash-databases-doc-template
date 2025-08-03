@@ -7,22 +7,22 @@ Links:
 
 Files:
 
-* zip: [vertebrates.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2024.01/vertebrates.k=51.sig.zip) - vertebrate reference genomes (NCBI:txid7742) - DNA, k=51, scaled=10000
+* zip: [vertebrates-2025.01.dna.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/vertebrates-2025.01.dna.k=51.sig.zip) - vertebrate reference genomes (NCBI:txid7742) - DNA, k=51, scaled=10000
 
 
-* zip: [bilateria-minus-vertebrates.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2024.01/bilateria-minus-vertebrates.k=51.sig.zip) - bilateria minus the vertebrates - DNA, k=51, scaled=10000
+* zip: [ncbi-euks-bilateria-minus-vertebrates-2025.01.dna.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-bilateria-minus-vertebrates-2025.01.dna.k=51.sig.zip) - bilateria minus the vertebrates - DNA, k=51, scaled=10000
 
 
-* zip: [plants.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2024.01/plants.k=51.sig.zip) - plant reference genomes (NCBI:txid33090) - DNA, k=51, scaled=10000
+* zip: [ncbi-euks-plants-2025.01.dna.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-plants-2025.01.dna.k=51.sig.zip) - plant reference genomes (NCBI:txid33090) - DNA, k=51, scaled=10000
 
 
-* zip: [fungi.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2024.01/fungi.k=51.sig.zip) - fungal reference genomes (NCBI:txid4751) - DNA, k=51, scaled=10000
+* zip: [ncbi-euks-fungi-2025.01.dna.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-fungi-2025.01.dna.k=51.sig.zip) - fungal reference genomes (NCBI:txid4751) - DNA, k=51, scaled=10000
 
 
-* zip: [metazoa-minus-bilateria.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2024.01/metazoa-minus-bilateria.k=51.sig.zip) - metazoan reference genomes minus the bilateria - DNA, k=51, scaled=10000
+* zip: [ncbi-euks-metazoa-minus-bilateria-2025.01.dna.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-metazoa-minus-bilateria-2025.01.dna.k=51.sig.zip) - metazoan reference genomes minus the bilateria - DNA, k=51, scaled=10000
 
 
-* zip: [other.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2024.01/other.k=51.sig.zip) - remaining eukaryotes (not plants, fungi, or metazoa) - DNA, k=51, scaled=10000
+* zip: [ncbi-euks-other-2025.01.dna.k=51.sig.zip](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/genbank-euks-2025.01/ncbi-euks-other-2025.01.dna.k=51.sig.zip) - remaining eukaryotes (not plants, fungi, or metazoa) - DNA, k=51, scaled=10000
 
 
 
