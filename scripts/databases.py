@@ -88,21 +88,6 @@ gtdb226 = GenomeCollection(
     taxonomies=[gtdb226_tax],
 )
 
-gtdb226_entire_dna = SketchDatabases(
-    short="gtdb226_entire_dna",
-    collection=gtdb226,
-    description="all GTDB genomes.",
-    params=[
-        Params(ksize=21, moltype="DNA", scaled=1000, size_gb=21),
-        Params(ksize=31, moltype="DNA", scaled=1000, size_gb=21),
-        Params(ksize=51, moltype="DNA", scaled=1000, size_gb=21),
-    ],
-    fmt="zip",
-    index_type="zipfile",
-    filename="gtdb-rs226/gtdb-rs226-k{ksize}.dna.zip",
-    download_url=f"{BASE_URL}/{{filename}}",
-)
-
 gtdb226_reps_dna = SketchDatabases(
     short="gtdb226_reps_dna",
     collection=gtdb226,
@@ -115,6 +100,36 @@ gtdb226_reps_dna = SketchDatabases(
     fmt="zip",
     index_type="zipfile",
     filename="gtdb-rs226/gtdb-reps-rs226-k{ksize}.dna.zip",
+    download_url=f"{BASE_URL}/{{filename}}",
+)
+
+gtdb226_entire_dna = SketchDatabases(
+    short="gtdb226_entire_dna",
+    collection=gtdb226,
+    description="all GTDB genomes",
+    params=[
+        Params(ksize=21, moltype="DNA", scaled=1000, size_gb=21),
+        Params(ksize=31, moltype="DNA", scaled=1000, size_gb=21),
+        Params(ksize=51, moltype="DNA", scaled=1000, size_gb=21),
+    ],
+    fmt="zip",
+    index_type="zipfile",
+    filename="gtdb-rs226/gtdb-rs226-k{ksize}.dna.zip",
+    download_url=f"{BASE_URL}/{{filename}}",
+)
+
+gtdb226_entire_dna_rocksdb = SketchDatabases(
+    short="gtdb226_entire_dna_rocksdb",
+    collection=gtdb226,
+    description="all GTDB genomes, indexed with RocksDB",
+    params=[
+        Params(ksize=21, moltype="DNA", scaled=1000, size_gb=31),
+        Params(ksize=31, moltype="DNA", scaled=1000, size_gb=32),
+        Params(ksize=51, moltype="DNA", scaled=1000, size_gb=33),
+    ],
+    fmt="tar.gz",
+    index_type="rocksdb",
+    filename="gtdb-rs226/gtdb-rs226-k{ksize}.dna.rocksdb.tar.gz",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -183,6 +198,19 @@ ncbi_euks_2025_01 = GenomeCollection(
         )
     ],
     taxonomies=[ncbi_euk_tax_2025_01],
+)
+
+ncbi_euks_2025_01_rocksdb = SketchDatabases(
+    short="ncbi_euks_rocksdb",
+    description="all NCBI eukaryotes, indexed in a RocksDB",
+    collection=ncbi_euks_2025_01,
+    params=[
+        Params(ksize=51, moltype="DNA", scaled=10000, size_gb=19),
+    ],
+    fmt="zip",
+    index_type="rocksdb",
+    filename="genbank-euks-2025.01/ncbi-euks-all-2025.01.k51.rocksdb.zip",
+    download_url=f"{BASE_URL}/{{filename}}",
 )
 
 ncbi_euks_2025_01_vert = SketchDatabases(

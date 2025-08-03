@@ -20,7 +20,8 @@ urls = [
 
 def main():
     n_failed = 0
-    for url in urls:
+    for n, url in enumerate(urls):
+        print('...', n+1)
         x = requests.head(url)
 
         if x.status_code != 200:
