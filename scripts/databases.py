@@ -47,6 +47,21 @@ gtdb220_entire_dna = SketchDatabases(
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
+gtdb220_reps_dna = SketchDatabases(
+    short="gtdb220_reps_dna",
+    collection=gtdb220,
+    description="all GTDB species representative genomes.",
+    params=[
+        Params(ksize=21, moltype="DNA", scaled=1000, size_gb=2.8),
+        Params(ksize=31, moltype="DNA", scaled=1000, size_gb=2.8),
+        Params(ksize=51, moltype="DNA", scaled=1000, size_gb=2.8),
+    ],
+    fmt="zip",
+    index_type="zipfile",
+    filename="gtdb-rs220/gtdb-reps-rs220-k{ksize}.dna.zip",
+    download_url=f"{BASE_URL}/{{filename}}",
+)
+
 ### GTDB rs226
 
 gtdb226_tax = Taxonomy(
@@ -85,6 +100,21 @@ gtdb226_entire_dna = SketchDatabases(
     fmt="zip",
     index_type="zipfile",
     filename="gtdb-rs226/gtdb-rs226-k{ksize}.dna.zip",
+    download_url=f"{BASE_URL}/{{filename}}",
+)
+
+gtdb226_reps_dna = SketchDatabases(
+    short="gtdb226_reps_dna",
+    collection=gtdb226,
+    description="all GTDB species representative genomes.",
+    params=[
+        Params(ksize=21, moltype="DNA", scaled=1000, size_gb=21),
+        Params(ksize=31, moltype="DNA", scaled=1000, size_gb=21),
+        Params(ksize=51, moltype="DNA", scaled=1000, size_gb=21),
+    ],
+    fmt="zip",
+    index_type="zipfile",
+    filename="gtdb-rs226/gtdb-reps-rs226-k{ksize}.dna.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
