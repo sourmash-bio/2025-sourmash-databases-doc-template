@@ -7,16 +7,16 @@ Templates_To_Output = namedtuple("Templates_To_Output",
 
 templates = [
     Templates_To_Output('gtdb220',
-                        'complete',
+                        'gtdb',
                         'outputs/md/gtdb220.md'),
     Templates_To_Output('gtdb226',
-                        'complete',
+                        'gtdb+rocksdb',
                         'outputs/md/gtdb226.md'),
     Templates_To_Output('ncbi_viruses_2025_01',
-                        'complete',
+                        'ncbi',
                         'outputs/md/ncbi_viruses_2025_01.md'),
     Templates_To_Output('ncbi_euks_2025_01',
-                        'complete',
+                        'ncbi',
                         'outputs/md/ncbi_euks_2025_01.md'),
 ]
 
