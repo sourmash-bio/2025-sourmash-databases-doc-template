@@ -129,7 +129,7 @@ gtdb226_entire_dna_rocksdb = SketchDatabases(
     ],
     fmt="tar.gz",
     index_type="rocksdb",
-    filename="gtdb-rs226/gtdb-rs226-k{ksize}.dna.rocksdb.zip",
+    filename="gtdb-rs226/gtdb-rs226-k{ksize}.dna.rocksdb.tar.gz",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -181,7 +181,7 @@ ncbi_euk_tax_2025_01 = Taxonomy(
     title="NCBI eukaryotic taxonomy",
     description="NCBI taxonomy for eukaryotes (NCBI:txid2759) as of January 2025.",
     source="ncbi",
-    lineage_file="genbank-euks-2025.01/ncbi-eukaryotes.2025.01.lineages.csv",
+    lineage_file="ncbi-euks-2025.01/ncbi-eukaryotes.2025.01.lineages.csv",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -207,9 +207,9 @@ ncbi_euks_2025_01_rocksdb = SketchDatabases(
     params=[
         Params(ksize=51, moltype="DNA", scaled=10000, size_gb=19),
     ],
-    fmt="zip",
+    fmt="tar.gz",
     index_type="rocksdb",
-    filename="genbank-euks-2025.01/ncbi-euks-all-2025.01.k51.rocksdb.zip",
+    filename="ncbi-euks-2025.01/ncbi-euks-all-2025.01-k51.dna.rocksdb.tar.gz",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -222,7 +222,7 @@ ncbi_euks_2025_01_vert = SketchDatabases(
     ],
     fmt="zip",
     index_type="zipfile",
-    filename="genbank-euks-2025.01/ncbi-euks-vertebrates-2025.01.dna.k={ksize}.sig.zip",
+    filename="ncbi-euks-2025.01/ncbi-euks-vertebrates-2025.01.dna.k={ksize}.sig.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -235,7 +235,7 @@ ncbi_euk_2025_01_bilateria = SketchDatabases(
     ],
     fmt="zip",
     index_type="zipfile",
-    filename="genbank-euks-2025.01/ncbi-euks-bilateria-minus-vertebrates-2025.01.dna.k={ksize}.sig.zip",
+    filename="ncbi-euks-2025.01/ncbi-euks-bilateria-minus-vertebrates-2025.01.dna.k={ksize}.sig.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -248,7 +248,7 @@ ncbi_euk_2025_01_plants = SketchDatabases(
     ],
     fmt="zip",
     index_type="zipfile",
-    filename="genbank-euks-2025.01/ncbi-euks-plants-2025.01.dna.k={ksize}.sig.zip",
+    filename="ncbi-euks-2025.01/ncbi-euks-plants-2025.01.dna.k={ksize}.sig.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -261,7 +261,7 @@ ncbi_euks_2025_01_fungi = SketchDatabases(
     ],
     fmt="zip",
     index_type="zipfile",
-    filename="genbank-euks-2025.01/ncbi-euks-fungi-2025.01.dna.k={ksize}.sig.zip",
+    filename="ncbi-euks-2025.01/ncbi-euks-fungi-2025.01.dna.k={ksize}.sig.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -274,7 +274,7 @@ ncbi_euks_2025_01_metazoa = SketchDatabases(
     ],
     fmt="zip",
     index_type="zipfile",
-    filename="genbank-euks-2025.01/ncbi-euks-metazoa-minus-bilateria-2025.01.dna.k={ksize}.sig.zip",
+    filename="ncbi-euks-2025.01/ncbi-euks-metazoa-minus-bilateria-2025.01.dna.k={ksize}.sig.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -287,6 +287,6 @@ ncbi_euks_2025_01_other = SketchDatabases(
     ],
     fmt="zip",
     index_type="zipfile",
-    filename="genbank-euks-2025.01/ncbi-euks-other-2025.01.dna.k={ksize}.sig.zip",
+    filename="ncbi-euks-2025.01/ncbi-euks-other-2025.01.dna.k={ksize}.sig.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
