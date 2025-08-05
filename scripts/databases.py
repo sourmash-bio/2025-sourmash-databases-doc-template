@@ -129,7 +129,7 @@ gtdb226_entire_dna_rocksdb = SketchDatabases(
     ],
     fmt="tar.gz",
     index_type="rocksdb",
-    filename="gtdb-rs226/gtdb-rs226-k{ksize}.dna.rocksdb.tar.gz",
+    filename="gtdb-rs226/gtdb-rs226-k{ksize}.dna.rocksdb.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
