@@ -91,6 +91,33 @@ class GenomeCollection:
     def from_json(self, s):
         self.__dict__.update(json.loads(s))
 
+    def select_files(self, *, short_substr=None, index_type=None,
+                     ksize=None, moltype=None, scaled=None):
+        ret = []
+        for sketch_db in self.sketches:
+            if (short_substr is None or short_substr in sketch_db.short) and \
+               (index_type is None or index_type == sketch_db.index_type):
+                for f in sketch_db.select(ksize=ksize, moltype=moltype,
+                                             scaled=scaled):
+                    ret.append(f)
+        return ret
+        
+
+    def select_one_file(self, *, short_substr, index_type,
+                        ksize=None, moltype=None, scaled=None):
+        matches = self.select_files(short_substr=short_substr,
+                                    index_type=index_type,
+                                    ksize=ksize,
+                                    moltype=moltype,
+                                    scaled=scaled)
+
+        if len(matches) == 0:
+            raise Exception(f"no match found for *{short_substr}* {index_type} {ksize} {moltype} {scaled}")
+        elif len(matches) > 1:
+            raise Exception(f"multiple matches found for *{short_substr}* {index_type} {ksize} {moltype} {scaled}")
+
+        return matches[0]
+
 
 class ConcreteSketchDatabase:
     def __init__(self, *, ksize, moltype, scaled, parent, size_gb):
@@ -168,6 +195,29 @@ class SketchDatabases:
                 ksize=ksize, moltype=moltype, scaled=scaled, parent=self,
                 size_gb=size_gb,
             )
+
+    def select(self, *, ksize=None, scaled=None, moltype=None):
+        for param in self.params:
+            if (ksize is None or ksize == param.ksize) and \
+               (scaled is None or scaled == param.scaled) and \
+               (moltype is None or moltype == param.moltype):
+
+                yield ConcreteSketchDatabase(
+                    ksize=param.ksize,
+                    moltype=param.moltype,
+                    scaled=param.scaled,
+                    parent=self,
+                    size_gb=param.size_gb,
+                )
+
+    def select_one(self, *, ksize=None, scaled=None, moltype=None):
+        matches = list(self.select(ksize=ksize, scaled=scaled, moltype=moltype))
+        if len(matches) > 1:
+            raise Exception(f"more than one match to {ksize}, {scaled}, {moltype}")
+        elif len(matches) == 0:
+            raise Exception(f"no match to {ksize}, {scaled}, {moltype}")
+
+        return matches[0]
 
     def json(self):
         d = dict(self.__dict__)

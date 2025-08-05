@@ -35,7 +35,7 @@ gtdb220 = GenomeCollection(
 gtdb220_entire_dna = SketchDatabases(
     short="gtdb220_entire_dna",
     collection=gtdb220,
-    description="all GTDB genomes.",
+    description="all GTDB genomes",
     params=[
         Params(ksize=21, moltype="DNA", scaled=1000, size_gb=17),
         Params(ksize=31, moltype="DNA", scaled=1000, size_gb=17),
@@ -50,7 +50,7 @@ gtdb220_entire_dna = SketchDatabases(
 gtdb220_reps_dna = SketchDatabases(
     short="gtdb220_reps_dna",
     collection=gtdb220,
-    description="all GTDB species representative genomes.",
+    description="GTDB species representative genomes",
     params=[
         Params(ksize=21, moltype="DNA", scaled=1000, size_gb=2.8),
         Params(ksize=31, moltype="DNA", scaled=1000, size_gb=2.8),
@@ -91,11 +91,11 @@ gtdb226 = GenomeCollection(
 gtdb226_reps_dna = SketchDatabases(
     short="gtdb226_reps_dna",
     collection=gtdb226,
-    description="all GTDB species representative genomes.",
+    description="GTDB species representative genomes",
     params=[
-        Params(ksize=21, moltype="DNA", scaled=1000, size_gb=21),
-        Params(ksize=31, moltype="DNA", scaled=1000, size_gb=21),
-        Params(ksize=51, moltype="DNA", scaled=1000, size_gb=21),
+        Params(ksize=21, moltype="DNA", scaled=1000, size_gb=3.7),
+        Params(ksize=31, moltype="DNA", scaled=1000, size_gb=3.7),
+        Params(ksize=51, moltype="DNA", scaled=1000, size_gb=3.7),
     ],
     fmt="zip",
     index_type="zipfile",
@@ -129,7 +129,7 @@ gtdb226_entire_dna_rocksdb = SketchDatabases(
     ],
     fmt="tar.gz",
     index_type="rocksdb",
-    filename="gtdb-rs226/gtdb-rs226-k{ksize}.dna.rocksdb.tar.gz",
+    filename="gtdb-rs226/gtdb-rs226-k{ksize}.dna.rocksdb.zip",
     download_url=f"{BASE_URL}/{{filename}}",
 )
 
@@ -161,7 +161,7 @@ ncbi_viruses_2025_01 = GenomeCollection(
 
 ncbi_viruses_2025_01_dna = SketchDatabases(
     short="ncbi_viruses_2025_01_dna",
-    description="all viral genomes.",
+    description="all viral genomes",
     collection=ncbi_viruses_2025_01,
     params=[
         Params(ksize=21, moltype="DNA", scaled=50, size_gb=1.4),
