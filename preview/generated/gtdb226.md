@@ -18,7 +18,7 @@ Links:
 | 51 | [download (3.7 GB)](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs226/gtdb-reps-rs226-k51.dna.zip) | [download (21.0 GB)](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs226/gtdb-rs226-k51.dna.zip)  | [download (33.0 GB)](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs226/gtdb-rs226-k51.dna.rocksdb.zip)  |
 
 
-Note: RocksDB indexes must be unzipped to be used, while the other
+Note: RocksDB indexes must be unzipped before use, while the other
 databases can be used directly as zip files.
 
 ## Taxonomy files:

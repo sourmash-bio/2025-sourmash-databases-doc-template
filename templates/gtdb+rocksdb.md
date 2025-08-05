@@ -22,7 +22,7 @@ Links:
 | {{ ksize }} | [download ({{ reps.size_gb }} GB)]({{ reps.download_url }}) | [download ({{ entire.size_gb }} GB)]({{ entire.download_url }})  | [download ({{ rocksdb.size_gb }} GB)]({{ rocksdb.download_url }})  |
 {% endfor %}
 
-Note: RocksDB indexes must be unzipped to be used, while the other
+Note: RocksDB indexes must be unzipped before use, while the other
 databases can be used directly as zip files.
 
 ## Taxonomy files:

@@ -18,6 +18,8 @@ Indexed RocksDB collections:
 {% for dbfile in coll.select_files(index_type='rocksdb') %}
    * {{ dbfile.fmt }}: [{{ dbfile.basename }}]({{ dbfile.download_url }}) - {{ dbfile.description }} - {{ dbfile.moltype }}, k={{ dbfile.ksize }}, scaled={{ dbfile.scaled }} ({{ dbfile.size_gb }} GB)
 {% endfor %}
+
+Note: RocksDB indexes must be unzipped before use.
 {% endif %}
 
 Zip collections:
