@@ -11,7 +11,7 @@ Links:
 * [{{ descr }}]({{ url }})
 {%- endfor %}
 
-## Database files:
+## Database files
 
 | K-mer size | GTDB reps | GTDB entire | RocksDB index of entire |
 | -------- | -------- | -------- | ---- |
@@ -22,10 +22,12 @@ Links:
 | {{ ksize }} | [download ({{ reps.size_gb }} GB)]({{ reps.download_url }}) | [download ({{ entire.size_gb }} GB)]({{ entire.download_url }})  | [download ({{ rocksdb.size_gb }} GB)]({{ rocksdb.download_url }})  |
 {% endfor %}
 
-Note: RocksDB indexes must be unzipped before use, while the other
-databases can be used directly as zip files.
+Note: RocksDB indexes must be unpacked before use, while the other
+databases can be used directly as zip files. You can
+[unpack while downloading](https://unix.stackexchange.com/questions/85194/how-to-download-an-archive-and-extract-it-without-saving-the-archive-to-disk/85195#85195)
+in order to avoid temporarily using disk space to store the downloaded tar.gz.
 
-## Taxonomy files:
+## Taxonomy files
 
 {% for tax in coll.taxonomies -%}
 * [{{ tax.description }}]({{ tax.download_url }})

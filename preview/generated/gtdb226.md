@@ -9,7 +9,7 @@ Links:
 
 * [Announcement](https://forum.gtdb.ecogenomic.org/t/announcing-gtdb-r10-rs226/724)
 
-## Database files:
+## Database files
 
 | K-mer size | GTDB reps | GTDB entire | RocksDB index of entire |
 | -------- | -------- | -------- | ---- |
@@ -18,10 +18,12 @@ Links:
 | 51 | [download (3.7 GB)](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs226/gtdb-reps-rs226-k51.dna.zip) | [download (21.0 GB)](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs226/gtdb-rs226-k51.dna.zip)  | [download (33.0 GB)](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs226/gtdb-rs226-k51.dna.rocksdb.tar.gz)  |
 
 
-Note: RocksDB indexes must be unzipped before use, while the other
-databases can be used directly as zip files.
+Note: RocksDB indexes must be unpacked before use, while the other
+databases can be used directly as zip files. You can
+[unpack while downloading](https://unix.stackexchange.com/questions/85194/how-to-download-an-archive-and-extract-it-without-saving-the-archive-to-disk/85195#85195)
+in order to avoid temporarily using disk space to store the downloaded tar.gz.
 
-## Taxonomy files:
+## Taxonomy files
 
 * [GTDB taxonomy for RS226.](https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs226/gtdb-rs226.lineages.csv)
 
@@ -84,6 +86,24 @@ curl -O --no-clobber https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-
 # download taxonomy file
 curl -O --no-clobber https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs226/gtdb-rs226.lineages.csv
 ```
+
+
+
+### Download and unpack RocksDB indexes
+
+```
+
+# download and unpack gtdb-rs226-k21.dna.rocksdb.tar.gz
+curl -L https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs226/gtdb-rs226-k21.dna.rocksdb.tar.gz | tar xzf -
+
+# download and unpack gtdb-rs226-k31.dna.rocksdb.tar.gz
+curl -L https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs226/gtdb-rs226-k31.dna.rocksdb.tar.gz | tar xzf -
+
+# download and unpack gtdb-rs226-k51.dna.rocksdb.tar.gz
+curl -L https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db.new/gtdb-rs226/gtdb-rs226-k51.dna.rocksdb.tar.gz | tar xzf -
+
+```
+
 
 ### A list of all the URLs
 

@@ -136,6 +136,9 @@ class ConcreteSketchDatabase:
         format_d["filename"] = self.filename
         self.download_url = parent.download_url.format(**format_d)
 
+    def __repr__(self):
+        return f"{self.ksize} {self.moltype} {self.scaled} {self.size_gb} {self.fmt} {self.download_url}"
+
     @property
     def basename(self):
         return os.path.basename(self.filename)
