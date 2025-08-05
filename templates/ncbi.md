@@ -11,23 +11,27 @@ Links:
 * [{{ descr }}]({{ url }})
 {%- endfor %}
 
-## Database files:
+## Database files
 
 {% if coll.select_files(index_type='rocksdb') %}
-Indexed RocksDB collections:
+### Indexed RocksDB collections
 {% for dbfile in coll.select_files(index_type='rocksdb') %}
    * {{ dbfile.fmt }}: [{{ dbfile.basename }}]({{ dbfile.download_url }}) - {{ dbfile.description }} - {{ dbfile.moltype }}, k={{ dbfile.ksize }}, scaled={{ dbfile.scaled }} ({{ dbfile.size_gb }} GB)
 {% endfor %}
 
-Note: RocksDB indexes must be unzipped before use.
+Note: RocksDB indexes must be unpacked before use, while the other
+databases can be used directly as zip files. You can
+[unpack while downloading](https://unix.stackexchange.com/questions/85194/how-to-download-an-archive-and-extract-it-without-saving-the-archive-to-disk/85195#85195)
+in order to avoid temporarily using disk space to store the downloaded tar.gz.
+
 {% endif %}
 
-Zip collections:
+### Zip collections
 {% for dbfile in coll.select_files(index_type='zipfile') %}
    * {{ dbfile.fmt }}: [{{ dbfile.basename }}]({{ dbfile.download_url }}) - {{ dbfile.description }} - {{ dbfile.moltype }}, k={{ dbfile.ksize }}, scaled={{ dbfile.scaled }} ({{ dbfile.size_gb }} GB)
 {% endfor %}
 
-## Taxonomy files:
+## Taxonomy files
 
 {% for tax in coll.taxonomies -%}
 * [{{ tax.description }}]({{ tax.download_url }})

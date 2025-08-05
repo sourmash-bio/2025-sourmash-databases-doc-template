@@ -27,6 +27,18 @@ curl -O --no-clobber {{ tax.download_url }}
 {% endfor -%}
 ```
 
+{% if coll.select_files(index_type='rocksdb') %}
+
+### Download and unpack RocksDB indexes
+
+```
+{% for dbfile in coll.select_files(index_type='rocksdb') %}
+# download and unpack {{ dbfile.basename }}
+curl -L {{ dbfile.download_url }} | tar xzf -
+{% endfor %}
+```
+{% endif %}
+
 ### A list of all the URLs
 
 ```

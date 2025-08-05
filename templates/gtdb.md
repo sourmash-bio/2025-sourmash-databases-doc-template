@@ -11,7 +11,7 @@ Links:
 * [{{ descr }}]({{ url }})
 {%- endfor %}
 
-## Database files:
+## Database files
 
 | K-mer size | GTDB reps | GTDB entire |
 | -------- | -------- | -------- |
@@ -21,7 +21,7 @@ Links:
 | {{ ksize }} | [download ({{ reps.size_gb }} GB)]({{ reps.download_url }}) | [download ({{ entire.size_gb }} GB)]({{ entire.download_url }})  |
 {% endfor %}
 
-## Taxonomy files:
+## Taxonomy files
 
 {% for tax in coll.taxonomies -%}
 * [{{ tax.description }}]({{ tax.download_url }})
